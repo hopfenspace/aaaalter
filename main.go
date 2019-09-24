@@ -26,6 +26,7 @@ func main() {
 	updates, err := bot.GetUpdatesChan(u)
 
 	r, _ := regexp.Compile("(?i)[a]+lter")
+	ja, _ := regexp.Compile("(?i)j[a]+")
 
 	for update := range updates {
 		if update.Message == nil {
@@ -44,6 +45,24 @@ func main() {
 
 			buffer.WriteString(strings.Repeat("a", acount * 2))
 			buffer.WriteString("lter")
+
+			msg := tgbotapi.NewMessage(update.Message.Chat.ID, buffer.String())
+			msg.ReplyToMessageID = update.Message.MessageID
+	
+			bot.Send(msg)	
+		}
+
+		match := ja.MatchString(update.Message.Text)
+		
+		if match {
+			log.Printf("[%s] %s", update.Message.From.UserName, update.Message.Text)
+
+			var buffer bytes.Buffer
+
+			alter := ja.FindAllString(update.Message.Text, 1)
+			acount := len(alter[0]) - 1
+			buffer.WriteString("JAWOHL JAAAAAAAAAAA Porsche JAAA MAAANNNNN \n\r")
+			buffer.WriteString("Porsche Cayman S Diggaaa JAAA")
 
 			msg := tgbotapi.NewMessage(update.Message.Chat.ID, buffer.String())
 			msg.ReplyToMessageID = update.Message.MessageID
