@@ -59,8 +59,8 @@ func main() {
 
 			var buffer bytes.Buffer
 
-			buffer.WriteString("JAWOHL JAAAAAAAAAAA Porsche JAAA MAAANNNNN \r\n")
-			buffer.WriteString("Porsche Cayman S Diggaaa JAAA")
+			buffer.WriteString("PORSCHE CAYMAN S JUNGS! \r\n")
+			buffer.WriteString("JAWOLL JAAAAA!")
 
 			msg := tgbotapi.NewMessage(update.Message.Chat.ID, buffer.String())
 			msg.ReplyToMessageID = update.Message.MessageID
