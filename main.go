@@ -59,7 +59,7 @@ func main() {
 
 			var buffer bytes.Buffer
 
-			buffer.WriteString("JAWOHL JAAAAAAAAAAA Porsche JAAA MAAANNNNN \n\r")
+			buffer.WriteString("JAWOHL JAAAAAAAAAAA Porsche JAAA MAAANNNNN \r\n")
 			buffer.WriteString("Porsche Cayman S Diggaaa JAAA")
 
 			msg := tgbotapi.NewMessage(update.Message.Chat.ID, buffer.String())
