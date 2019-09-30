@@ -52,15 +52,13 @@ func main() {
 			bot.Send(msg)	
 		}
 
-		match := ja.MatchString(update.Message.Text)
+		match = ja.MatchString(update.Message.Text)
 		
 		if match {
 			log.Printf("[%s] %s", update.Message.From.UserName, update.Message.Text)
 
 			var buffer bytes.Buffer
 
-			alter := ja.FindAllString(update.Message.Text, 1)
-			acount := len(alter[0]) - 1
 			buffer.WriteString("JAWOHL JAAAAAAAAAAA Porsche JAAA MAAANNNNN \n\r")
 			buffer.WriteString("Porsche Cayman S Diggaaa JAAA")
 
