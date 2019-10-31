@@ -25,8 +25,8 @@ func main() {
 
 	updates, err := bot.GetUpdatesChan(u)
 
-	r, _ := regexp.Compile("(?i)[a]+lter")
-	ja, _ := regexp.Compile("(?i)j[a]+")
+	r, _ := regexp.Compile("(?i)\\b[a]+lter\\b")
+	ja, _ := regexp.Compile("(?i)\\b((j[a]+wo(h?)[l]+)|porsche|cayman)\\b")
 
 	for update := range updates {
 		if update.Message == nil {
